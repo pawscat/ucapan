@@ -15,26 +15,26 @@
 
 :root {
     /* ── Backgrounds ── */
-    --bg-deep: #070710;
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #111118;
-    --bg-card: rgba(255, 255, 255, 0.035);
-    --bg-card-hover: rgba(255, 255, 255, 0.07);
+    --bg-deep: #2c2333; /* Dreamy dark lavender */
+    --bg-primary: #352a3d;
+    --bg-secondary: #42344a;
+    --bg-card: rgba(220, 174, 187, 0.08); /* Dusty pink glass */
+    --bg-card-hover: rgba(220, 174, 187, 0.15);
     --bg-glass: rgba(255, 255, 255, 0.05);
 
-    /* ── Accent: Pink ── */
-    --pink: #ff2d7b;
-    --pink-light: #ff6b9d;
-    --pink-glow: rgba(255, 45, 123, 0.25);
-    --pink-soft: rgba(255, 107, 157, 0.12);
-    --gold: #ffd700;
-    --text-white: #ffffff;
-    --text-muted: #fbcce0; /* Softer pink text */
-    --text-dim: #5c5577;
-    --border-subtle: rgba(255, 107, 157, 0.2);
-    --border-pink: rgba(255, 45, 123, 0.5);
-    --shadow-pink: 0 0 30px rgba(255, 45, 123, 0.12);
-    --shadow-gold: 0 0 30px rgba(255, 215, 0, 0.12);
+    /* ── Accent: Lavender & Dusty Pink ── */
+    --pink: #dcaebb; /* Dusty Pink */
+    --pink-light: #e3c5ce; /* Soft Pink */
+    --pink-glow: rgba(220, 174, 187, 0.25);
+    --pink-soft: rgba(220, 174, 187, 0.12);
+    --gold: #d4c4fb; /* Soft Lavender (replacing gold) */
+    --text-white: #fdf8ff;
+    --text-muted: #e8dee9;
+    --text-dim: #a491a6;
+    --border-subtle: rgba(220, 174, 187, 0.2);
+    --border-pink: rgba(220, 174, 187, 0.4);
+    --shadow-pink: 0 0 30px rgba(220, 174, 187, 0.15);
+    --shadow-gold: 0 0 30px rgba(212, 196, 251, 0.15);
     --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.35);
 
     /* ── Spacing ── */
@@ -58,10 +58,21 @@ html {
 body {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--bg-deep);
-    color: var(--text-light);
+    color: var(--text-white);
+    line-height: 1.6;
     overflow-x: hidden;
-    line-height: 1.7;
-    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.12;
+    /* Soft Baby's Breath Motif Background */
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' opacity='0.8'%3E%3Ccircle cx='20' cy='20' r='1.5'/%3E%3Ccircle cx='23' cy='18' r='1'/%3E%3Ccircle cx='17' cy='19' r='1'/%3E%3Ccircle cx='21' cy='23' r='1.2'/%3E%3Ccircle cx='70' cy='60' r='1.5'/%3E%3Ccircle cx='74' cy='58' r='1'/%3E%3Ccircle cx='67' cy='61' r='1.2'/%3E%3Ccircle cx='71' cy='64' r='1'/%3E%3Ccircle cx='40' cy='80' r='1.5'/%3E%3Ccircle cx='43' cy='78' r='1'/%3E%3Ccircle cx='38' cy='82' r='1'/%3E%3Ccircle cx='85' cy='15' r='1.5'/%3E%3Ccircle cx='82' cy='13' r='1'/%3E%3Ccircle cx='87' cy='18' r='1'/%3E%3C/g%3E%3Cpath d='M20 20 Q15 35 30 50' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.3'/%3E%3Cpath d='M70 60 Q60 45 45 35' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.3'/%3E%3Cpath d='M40 80 Q55 70 70 85' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.3'/%3E%3Cpath d='M85 15 Q75 25 90 40' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.3'/%3E%3C/svg%3E");
+    background-size: 150px 150px;
 }
 
 img {
@@ -278,7 +289,7 @@ img {
 .envelope-back {
     position: absolute;
     inset: 0;
-    background: #a91249; /* Darker inner pink */
+    background: #46344d; /* Darker dusty purple */
     border-radius: 8px;
     z-index: 1;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
@@ -293,19 +304,19 @@ img {
 }
 
 .env-flap-left {
-    background: #e91e63; /* slightly darker pink for side */
+    background: #b68ca2; /* Dusty pink darker */
     clip-path: polygon(0 0, 51% 56%, 0 100%);
     border-radius: 8px 0 0 8px;
 }
 
 .env-flap-right {
-    background: #e91e63;
+    background: #b68ca2;
     clip-path: polygon(100% 0, 49% 56%, 100% 100%);
     border-radius: 0 8px 8px 0;
 }
 
 .env-flap-bottom {
-    background: #ff2d7b; /* lighter pink for bottom */
+    background: #dcaebb; /* Dusty pink lighter */
     clip-path: polygon(-1% 101%, 50% 54%, 101% 101%);
     border-radius: 0 0 8px 8px;
     filter: drop-shadow(0 -3px 8px rgba(0,0,0,0.15)); /* Inner shadow effect */
@@ -317,7 +328,7 @@ img {
     left: 0;
     width: 100%;
     height: 60%;
-    background: linear-gradient(185deg, #ff8dae, #ff2d7b);
+    background: linear-gradient(185deg, #e3c5ce, #dcaebb);
     clip-path: polygon(-1% -1%, 101% -1%, 50% 60%);
     z-index: 4;
     transform-origin: top center;
