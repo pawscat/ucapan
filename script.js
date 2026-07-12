@@ -327,37 +327,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            // ── Timeline Items ──
-            gsap.utils.toArray('.timeline-item').forEach(item => {
-                const isLeft = item.classList.contains('left');
-                gsap.set(item, { x: isLeft ? -50 : 50 });
-
-                gsap.to(item, {
-                    scrollTrigger: {
-                        trigger: item,
-                        start: 'top 82%',
-                        toggleActions: 'play none none none'
-                    },
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.7,
-                    ease: 'power2.out'
-                });
-            });
-
-            // ── Timeline Progress Line ──
-            const timelineContainer = document.querySelector('.timeline-container');
-            const progressLine = document.querySelector('.timeline-progress');
-            if (timelineContainer && progressLine) {
-                ScrollTrigger.create({
-                    trigger: timelineContainer,
-                    start: 'top 75%',
-                    end: 'bottom 25%',
-                    onUpdate: self => {
-                        progressLine.style.height = (self.progress * 100) + '%';
-                    }
-                });
-            }
 
             // ── Flip Cards ──
             gsap.utils.toArray('.flip-card').forEach((card, i) => {
